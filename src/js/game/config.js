@@ -48,19 +48,19 @@ export const Config = {
         },
         medium: {
             cardsOnScreen: 1,
-            cardDuration: 5000, 
+            cardDuration: 4000, 
             autoAdvance: true,
             timerEnabled: true
         },
         hard: {
             cardsOnScreen: 2,
-            cardDuration: 3000,
+            cardDuration: 4000,
             autoAdvance: true,
             timerEnabled: true
         },
         expert: {
             cardsOnScreen: 5,
-            cardDuration: 3000,
+            cardDuration: 5000,
             autoAdvance: true,
             timerEnabled: true
         }
