@@ -1,0 +1,8 @@
+[build]
+  publish = "src"
+  command = ""  # No build command needed for this project
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200

@@ -1,1 +1,3 @@
 bak/
+# Local Netlify folder
+.netlify

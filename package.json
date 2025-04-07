@@ -1,0 +1,16 @@
+{
+  "name": "cardcounting",
+  "version": "1.0.0",
+  "description": "Card counting practice application",
+  "main": "index.js",
+  "scripts": {
+    "start": "serve src",
+    "dev": "serve src",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "serve": "^14.2.1"
+  }
+}
