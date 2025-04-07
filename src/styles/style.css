@@ -1,0 +1,635 @@
+:root {
+    --bg-color: #121212;
+    --card-bg: #1e1e1e;
+    --text-primary: #e0e0e0;
+    --text-secondary: #a0a0a0;
+    --accent: #4CAF50;
+    --accent-hover: #3e8e41;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Modern homepage styling */
+body {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    overflow-x: hidden;
+}
+
+.hero-container {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        radial-gradient(circle at 10% 20%, rgba(255, 255, 255, 0.02) 0%, transparent 20%),
+        radial-gradient(circle at 80% 30%, rgba(255, 255, 255, 0.03) 0%, transparent 20%),
+        radial-gradient(circle at 40% 80%, rgba(255, 255, 255, 0.02) 0%, transparent 20%);
+}
+
+.hero-content {
+    text-align: center;
+    z-index: 1;
+    animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.hero-content h1 {
+    font-size: 4.5rem;
+    margin-bottom: 2rem;
+    color: white;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    font-weight: 700;
+}
+
+.start-button {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    padding: 1.2rem 3rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 20px rgba(76, 175, 80, 0.4);
+    letter-spacing: 2px;
+}
+
+.start-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 7px 25px rgba(76, 175, 80, 0.5);
+    background-color: #45a049;
+}
+
+.start-button:active {
+    transform: translateY(1px);
+    box-shadow: 0 2px 10px rgba(76, 175, 80, 0.3);
+}
+
+header {
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+h1 {
+    font-size: 2.5rem;
+    letter-spacing: 1px;
+    font-weight: 500;
+}
+
+.cta {
+    background-color: var(--card-bg);
+    border-radius: 8px;
+    padding: 2rem;
+    max-width: 600px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+    font-weight: 400;
+}
+
+p {
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+button {
+    background-color: var(--accent);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: var(--accent-hover);
+}
+
+footer {
+    margin-top: 2rem;
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    text-align: center;
+}
+
+.game-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding-top: 100px; /* Increase from 80px to push content lower */
+    background-color: var(--bg-color, #121212);
+}
+
+/* Game options styling */
+.options-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 2rem;
+    background-color: var(--card-bg);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.option-section {
+    margin-bottom: 2rem;
+}
+
+.option-section h2 {
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+}
+
+select {
+    width: 100%;
+    padding: 0.75rem;
+    border-radius: 4px;
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    border: 1px solid var(--text-secondary);
+}
+
+.difficulty-buttons {
+    display: flex;
+    gap: 1rem;
+}
+
+.difficulty-button {
+    flex: 1;
+    padding: 0.75rem;
+    background-color: var(--bg-color);
+    border: 1px solid var(--text-secondary);
+}
+
+.difficulty-button.selected {
+    background-color: var(--accent);
+    border-color: var(--accent);
+}
+
+.start-game-btn {
+    width: 100%;
+    margin-top: 1rem;
+    padding: 1rem;
+    font-size: 1.2rem;
+}
+
+/* Option buttons (for difficulty, counting system, etc.) */
+.option-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+.option-button {
+    flex: 1;
+    min-width: 100px;
+    padding: 0.75rem;
+    background-color: var(--bg-color);
+    border: 1px solid var(--text-secondary);
+    color: var(--text-primary);
+    border-radius: 4px;
+    transition: all 0.2s ease;
+}
+
+.option-button:hover {
+    background-color: #2c3e50;
+    border-color: var(--accent);
+}
+
+.option-button.selected {
+    background-color: var(--accent);
+    border-color: var(--accent);
+    color: white;
+}
+
+/* Card styling with flip effect - UPDATED */
+.card {
+    width: 220px;
+    height: 320px;
+    perspective: 1000px;
+    cursor: pointer;
+}
+
+.card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.6s;
+    transform-style: preserve-3d;
+}
+
+.card.flipped .card-inner {
+    transform: rotateY(180deg);
+}
+
+.card-front, .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.card-front {
+    background-color: #2c3e50;
+    /* Remove the striped pattern and use solid color instead */
+}
+
+.card-back {
+    background-color: white;
+    transform: rotateY(180deg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #000; /* Default color */
+}
+
+/* Card coloring */
+.card-back.red {
+    color: #e53935; /* Red color for hearts and diamonds */
+}
+
+.card-back.black {
+    color: #212121; /* Black color for spades and clubs */
+}
+
+/* Make sure card values and suits are visible */
+.card-value, .card-suit {
+    color: inherit; /* Inherit the color from the parent */
+}
+
+/* Add visual indicator for counted cards */
+.card.counted {
+    opacity: 0.8;
+}
+
+.card.correct-count-card::after {
+    content: '✓';
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: #4CAF50;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.card.incorrect-count-card::after {
+    content: '✗';
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: #f44336;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+/* Counter display */
+.counter-display {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: var(--card-bg);
+    padding: 1rem;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    font-size: 1.2rem;
+}
+
+.card-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    user-select: none;
+}
+
+.card-value {
+    font-size: 60px;
+    font-weight: bold;
+}
+
+.card-suit {
+    font-size: 80px;
+    line-height: 1;
+}
+
+/* Info bar with counts */
+.info-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+    background-color: var(--card-bg);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    z-index: 10;
+}
+
+.actual-count-display,
+.running-count-display,
+.cards-remaining-display {
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    background-color: var(--bg-color);
+    font-size: 1.1rem; 
+}
+
+/* Card area for multiple cards */
+.card-area {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 4rem;
+    margin-bottom: 2rem;
+    min-height: 350px;
+}
+
+/* Card container */
+.card-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 1rem;
+    position: relative;
+    transition: all 0.2s ease-in-out;
+}
+
+/* Adjust card size based on number of cards */
+@media (min-width: 769px) {
+    .card-area[data-cards="1"] .card {
+        width: 220px;
+        height: 320px;
+    }
+    
+    .card-area[data-cards="2"] .card {
+        width: 200px;
+        height: 290px;
+    }
+    
+    .card-area[data-cards="3"] .card {
+        width: 180px;
+        height: 260px;
+    }
+}
+
+/* Timer ring */
+.timer-ring {
+    position: relative;
+    width: 240px;
+    height: 340px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.timer-circle {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transform: rotate(-90deg);
+    z-index: 0;
+}
+
+.progress-ring {
+    transition: stroke-dashoffset 0.1s linear;
+    stroke-dashoffset: 0;
+}
+
+/* Ensure card animations don't affect layout */
+.card-entrance, .card-exit {
+    position: relative;
+    z-index: 1;
+}
+
+/* Card container with timer and controls */
+.card-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+/* Timer ring around card */
+.timer-ring {
+    position: relative;
+    width: 240px;
+    height: 340px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.timer-circle {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transform: rotate(-90deg);
+    z-index: 0;
+}
+
+.progress-ring {
+    transition: stroke-dashoffset 0.1s linear;
+    stroke-dashoffset: 0;
+}
+
+/* Card-specific controls */
+.card-specific-controls {
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.card-specific-button {
+    width: 40px !important;
+    height: 40px !important;
+    font-size: 1rem !important;
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.3) !important;
+}
+
+/* Global count buttons */
+.count-buttons-container {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 2.5rem;
+    margin-bottom: 1.5rem;
+    width: 100%;
+}
+
+.count-button {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    transition: all 0.2s ease;
+    color: white;
+    border: none;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
+}
+
+/* Casino-themed button colors */
+.count-button[data-value="-2"] {
+    background-color: #b71c1c; /* Deep red */
+}
+
+.count-button[data-value="-1"] {
+    background-color: #e53935; /* Lighter red */
+}
+
+.count-button[data-value="0"] {
+    background-color: #1b5e20; /* Casino green */
+}
+
+.count-button[data-value="1"] {
+    background-color: #43a047; /* Lighter green */
+}
+
+.count-button[data-value="2"] {
+    background-color: #2e7d32; /* Medium green */
+}
+
+/* Improved hover effect */
+.count-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.4);
+    cursor: pointer;
+}
+
+/* Adjusted selected button style */
+.count-button.selected {
+    transform: scale(1.1);
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.7); /* Gold glow */
+    border: 1px solid #ffd700; /* Gold border */
+}
+
+.count-button.disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
+}
+
+/* Feedback colors for correct/incorrect counts */
+.correct-count {
+    background-color: rgba(75, 181, 67, 0.9) !important;
+    color: white;
+}
+
+.incorrect-count {
+    background-color: rgba(220, 53, 69, 0.9) !important;
+    color: white;
+}
+
+/* Game over state */
+.game-over {
+    font-size: 2rem;
+    color: var(--text-primary);
+    text-align: center;
+    padding: 2rem;
+    background-color: rgba(0, 0, 0, 0.7);
+    border-radius: 10px;
+    animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Card animations */
+.card-entrance {
+    animation: slideInFromTop 0.4s ease-out forwards;
+}
+
+.card-exit {
+    animation: fadeOutDown 0.2s ease-out forwards;
+}
+
+@keyframes slideInFromTop {
+    0% {
+        transform: translateY(-50vh);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOutDown {
+    0% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(50vh);
+        opacity: 0;
+    }
+}
+
+/* Enhanced responsiveness for multiple cards */
+@media (max-width: 768px) {
+    .card-area {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .timer-ring {
+        width: 200px;
+        height: 300px;
+    }
+    
+    .card {
+        width: 180px;
+        height: 260px;
+    }
+    
+    .card-specific-controls {
+        scale: 0.7;
+    }
+}
